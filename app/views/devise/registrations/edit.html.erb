@@ -1,0 +1,57 @@
+<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto">
+<%= link_to root_path, class:"flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse" do %>
+    <img src="https://s3-alpha-sig.figma.com/img/3bae/6cac/bf2bb0371662b51d892abc579e5dc411?Expires=1719187200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=L9ijyPb5kEf5aQSc1l3h~YN8KO~xYmMwgAVFEzLq8bGrhfhjXxcZ0Si1u9vcQeRAdr6Jtc55Tm3EYLhFbhAwLpsu8cx3BhID4S3-XukbxiKk6igO~t6XPbytEw1FhzZGCw~Q6F5~FTRkzingkv3SU96DhzD6rUmAJOLOwAAKFHOf~YaNPw~TfRB~s~P~uiDP5D2IQ3tLbOt-CL0VMJC0MNOQrlX4OzuTjbs3vauCwSxVQLc2jb6Kmshs-r9X6kUW4RIJ7QuqYM3rQc6uhsLQZkF4rU5tH8HnB8z4qQhFgI5ZtwICc~cyNrstq~H3IBkXu205-T0wel5PKN6MNF0YMg__" class="h-12 mb-3 mr-2" alt="Rookie Logo" />
+<% end %>
+
+<div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gradient-to-r from-gray-900 to-gray-700 dark:border-gray-700 sm:p-8">
+<h2 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"><%= current_user.name %></h2>
+
+<div class="mt-4 space-y-4 lg:mt-5 md:space-y-5">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.text_field :name, autofocus: true, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500", placeholder:"Seu nome"  %>
+  </div>
+ <br/>
+  <div class="field">
+    <%= f.label :email, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500", placeholder:"name@company.com"  %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+<br/>
+  <div class="field">
+    <%= f.label :password, class:"block text-sm font-medium text-gray-900 dark:text-white" %> <i class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">(Deixe em branco se não quiser alterar)</i>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder:"••••••••", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500" %>
+    <% if @minimum_password_length %>
+      <em><%= @minimum_password_length %> caracteres no minímo</em>
+    <% end %>
+  </div>
+<br/>
+  <div class="field">
+    <%= f.label :password_confirmation, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"••••••••", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500" %>
+  </div>
+<br/>
+  <div class="field">
+    <%= f.label :current_password, class:"block text-sm font-medium text-gray-900 dark:text-white" %> <i class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">(Precisamos da sua senha atual para confirmar suas alterações)</i>
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder:"••••••••", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500" %>
+  </div>
+<br />
+  <div class="actions">
+    <%= f.submit "Atualizar", class:"w-full text-white bg-lime-600 hover:bg-lime-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" %>
+  </div>
+<% end %>
+
+<h3 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Cancelar minha conta</h3>
+
+<%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete, class:"w-full text-red bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" %>
+<br/>
+<%= link_to "Voltar", :back %>
+</div>
+</div>
+</div>
