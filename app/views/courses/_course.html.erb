@@ -1,0 +1,97 @@
+<div class="font-[sans-serif]">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold mb-2 pt-5">Curso de <%= @course %> </h2>
+      <p class="text-sm"> <%= @phrase %> </p>
+    </div>
+    <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-8 mt-6 max-sm:max-w-sm max-sm:mx-auto">
+      <div
+        class="shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] rounded-md overflow-hidden transition-all duration-500 hover:scale-105">
+        <div class="h-28 bg-gray-700 text-center p-4">
+          <h3 class="text-2xl text-white font-semibold mb-1">Iniciante</h3>
+          <p class="text-xs text-white">HTML & CSS</p>
+        </div>
+        <div
+          class="h-24 w-24 mx-auto -mt-8 shadow-xl rounded-full bg-gray-700 text-white border-4 flex flex-col items-center justify-center border-white">
+          <h3 class="text-2xl font-semibold">free</h3>
+        </div>
+        <div class="px-6 py-4 mt-4">
+          <ul class="space-y-4">
+          <% @list_start.each do |item| %>
+            <li class="flex items-center text-sm text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17"
+                class="mr-4 bg-green-500 fill-white rounded-full p-[3px]" viewBox="0 0 24 24">
+                <path
+                  d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                  data-original="#000000" />
+              </svg>
+              <%= item %>
+            </li>
+            <% end %>
+          </ul>
+          <button type="button"
+            class="w-full mt-8 px-2 py-2 text-sm font-semibold text-white bg-gray-700 hover:bg-gray-800 rounded-full">Get
+            Started</button>
+        </div>
+      </div>
+      <div
+        class="shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] rounded-md overflow-hidden transition-all duration-500 hover:scale-105 relative">
+        <div class="h-28 bg-blue-600 text-center p-4">
+          <h3 class="text-2xl text-white font-semibold mb-1">Intermediario</h3>
+          <p class="text-xs text-white">Javascript & Git</p>
+        </div>
+        <div
+          class="h-24 w-24 mx-auto -mt-8 shadow-xl rounded-full bg-blue-600 text-white border-4 flex flex-col items-center justify-center border-white">
+          <h3 class="text-2xl font-semibold">free</h3>
+        </div>
+        <div class="px-6 py-4 mt-4">
+          <ul class="space-y-4">
+          <% @list_professional.each do |item| %>
+            <li class="flex items-center text-sm text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17"
+                class="mr-4 bg-green-500 fill-white rounded-full p-[3px]" viewBox="0 0 24 24">
+                <path
+                  d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                  data-original="#000000" />
+              </svg>
+              <%= item %>
+            </li>
+            <% end %>
+          </ul>
+          <button type="button"
+            class="w-full mt-8 px-2 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-full">Get
+            Started</button>
+        </div>
+      </div>
+      <div
+        class="shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] rounded-md overflow-hidden transition-all duration-500 hover:scale-105">
+        <div class="h-28 bg-pink-700 text-center p-4">
+          <h3 class="text-2xl text-white font-semibold mb-1">Avançado</h3>
+          <p class="text-xs text-white">UX/UI, Frameworks e Bibliotecas & Hospedagem</p>
+        </div>
+        <div
+          class="h-24 w-24 mx-auto -mt-8 shadow-xl rounded-full bg-pink-700 text-white border-4 flex flex-col items-center justify-center border-white">
+          <h3 class="text-2xl font-semibold">free</h3>
+        </div>
+        <div class="px-6 py-4 mt-4">
+          <ul class="space-y-4">
+          <% @list_business.each do |item| %>
+            <li class="flex items-center text-sm text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17"
+                class="mr-4 bg-green-500 fill-white rounded-full p-[3px]" viewBox="0 0 24 24">
+                <path
+                  d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                  data-original="#000000" />
+              </svg>
+              <%= item %>
+            </li>
+            <% end %>
+          </ul>
+          <button type="button"
+            class="w-full mt-8 px-2 py-2 text-sm font-semibold text-white bg-pink-700 hover:bg-pink-800 rounded-full">Get
+            Started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
