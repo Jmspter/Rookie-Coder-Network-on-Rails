@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get '/about', to: "static_pages#about"
   get '/cursos', to: "static_pages#curso"
 
-  get 'cursos/front_end', to: "courses#front_end"
-  get 'cursos/back_end', to: "courses#back_end"
-  get 'cursos/game_dev', to: "courses#game_dev"
-  get 'cursos/data_cience', to: "courses#data_cience"
-  get 'cursos/full_stack', to: "courses#full_stack"
+  get '/cursos/:nome', to: "static_pages#show", as: 'course'
+  get 'cursos/:curso_nome/modulos/:modulo_nome', to: 'courses#show', as: 'curso_modulo'
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end  
 end

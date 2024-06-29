@@ -11,7 +11,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.label :name, "Nome", class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
     <%= f.text_field :name, autofocus: true, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500", placeholder:"Seu nome"  %>
   </div>
  <br/>
@@ -21,11 +21,11 @@
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>Atualmente aguardando confirmação para: <%= resource.unconfirmed_email %></div>
   <% end %>
 <br/>
   <div class="field">
-    <%= f.label :password, class:"block text-sm font-medium text-gray-900 dark:text-white" %> <i class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">(Deixe em branco se não quiser alterar)</i>
+    <%= f.label :password, "Senha", class:"block text-sm font-medium text-gray-900 dark:text-white" %> <i class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">(Deixe em branco se não quiser alterar)</i>
     <%= f.password_field :password, autocomplete: "new-password", placeholder:"••••••••", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500" %>
     <% if @minimum_password_length %>
       <em><%= @minimum_password_length %> caracteres no minímo</em>
@@ -33,12 +33,12 @@
   </div>
 <br/>
   <div class="field">
-    <%= f.label :password_confirmation, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.label :password_confirmation, "Confirmar Senha", class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"••••••••", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500" %>
   </div>
 <br/>
   <div class="field">
-    <%= f.label :current_password, class:"block text-sm font-medium text-gray-900 dark:text-white" %> <i class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">(Precisamos da sua senha atual para confirmar suas alterações)</i>
+    <%= f.label :current_password, "Senha atual", class:"block text-sm font-medium text-gray-900 dark:text-white" %> <i class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">(Precisamos da sua senha atual para confirmar suas alterações)</i>
     <%= f.password_field :current_password, autocomplete: "current-password", placeholder:"••••••••", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500" %>
   </div>
 <br />

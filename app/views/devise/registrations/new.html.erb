@@ -19,7 +19,7 @@
     </div>
 
     <div class="space-y-2">
-      <%= f.label :name, class:"text-sm block" %>
+      <%= f.label :name, "Nome", class:"text-sm block" %>
       <div class="relative flex items-center">
       <%= f.text_field :name, autofocus: true, class:"bg-white text-black border border-gray-300 w-full text-sm px-4 py-2.5 rounded-md outline-blue-500", placeholder:"Insira o nome" %>
         <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-4 h-4 absolute right-4" viewBox="0 0 24 24">
@@ -47,7 +47,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password, class: "text-sm block" %>
+      <%= f.label :password, "Senha", class: "text-sm block" %>
       <% if @minimum_password_length %>
       <em class="text-sm">(<%= @minimum_password_length %> caracteres no mínimo)</em>
       <% end %><br />
@@ -60,7 +60,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, class: "text-sm block" %>
+      <%= f.label :password_confirmation, "Confirmar Senha", class: "text-sm block" %>
       <div class="relative flex items-center">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"bg-white text-black border border-gray-300 w-full text-sm px-4 py-2.5 rounded-md outline-blue-500", placeholder:"Confirme a senha" %>
       </div>

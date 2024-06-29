@@ -3,67 +3,22 @@
         <div class="text-center">
           <h2 class="text-3xl font-extrabold text-white inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-lime-500 after:rounded-full">Nossos Cursos</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-md:max-w-lg mx-auto">
-          <%#new-containner%>
-          <%= link_to cursos_front_end_path do %>
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-md:max-w-lg mx-auto">
+          <% @courses.each do |course| %>
+          <li>
+          <%= link_to course_path(course[:nome]) do %>
           <div class="bg-gray-900 cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-            <img src="https://s3-alpha-sig.figma.com/img/e373/48ef/00b6d694d7bd66dd62fd51db91e66fa6?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OJimCehz2BIN28n6YK87kHOhNz-CK-gKRsCwGLL8ObAngbUCvtPIChstovnzCKd5ZWj6nCuZ9xN8Eisj5ob7VO8O1HY14FHGowYmwhDRQXVGxN7P5sWq6yrrUE0jA98khEDQluDz5sos5OsLiAn0Nil6-IRCmJRFmjeYes44k5mDXZmSVNllg~J-Z226oVsBj6jisJbBgA2p289VCqXilWZmcSn4S1g5yKV4JhIqqCdA~Z~Y0-x3seLKXw2kc6vGnYWDn08f9P1HZY~E2eNiPUCzuCPAfzG7FS7l8ef11SoH-fgUin6UeHEjeiaJCvhIBHpN1gj4uV86Lswgum0RmQ__" alt="Front-end" class="w-full h-60 object-cover" />
+            <%= image_tag "#{course[:nome]}.png", alt: course[:nome].titleize, class: "w-full h-60 object-cover" %>  
             <div class="p-6">
               <span class="text-sm block text-gray-400 mb-2">Professor: Ana Luiza Rodrigues Machado</span>
-              <h3 class="text-xl font-bold">Front-End</h3>
+              <h3 class="text-xl font-bold"><%= course[:nome].titleize %></h3>
               <hr class="my-6" />
-              <p class="text-gray-400 text-sm">A área de desenvolvimento web front-end é a ponte que une os mundos do design e da programação. O profissional desenvolvedor front-end é o responsável por colocar em prática, através de códigos, o design de um site ou interface.</p>
+              <p class="text-gray-400 text-sm"><%= course[:descricao] %></p>
             </div>
           </div>
           <% end %>
-          <%#new-containner%>
-          <%= link_to cursos_back_end_path do %>
-          <div class="bg-gray-900 cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-            <img src="https://s3-alpha-sig.figma.com/img/0134/31ce/46ce63434c608afbdd6763eaf7aa079b?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qVHHjYffG519~mcWqAakEHh1Cz9WazjKQVG3F4U9~Yh1CPtSqf9JnsYlesm8I3lYhH0MB1zQRu0YsSSk-I4VtR7zFsKIHaqRq24rs13Cy~JhrcdULwXueYD62RdKUXI3qM~Pmoy~tSqOHbaBwN35b6Ug9BMON3s8SZkWKQtNbUCBT3Q9WC-CQVnugH9~7halMpoLRzfDQ9ibLKO3OaErjGfvGtmLJDrM6jCxzK4PC25R16vVh6O4zvVwWZzTn-7iqNE8oFHwUF4WUGucz02RBIQ9iy9gfYqgfBTSW7lA8Cd3-1HNcnXnit6e7GP9VaHOBMh-KYlEwYG1jBdSgcy~qw__" alt="Back-end" class="w-full h-60 object-cover" />
-            <div class="p-6">
-              <span class="text-sm block text-gray-400 mb-2">Professor: Isabela de Paula Castro</span>
-              <h3 class="text-xl font-bold">Back-End</h3>
-              <hr class="my-6" />
-              <p class="text-gray-400 text-sm">Um desenvolvedor back-end é um profissional de tecnologia da informação responsável pela criação e manutenção da parte "invisível" de um aplicativo ou site, que lida com o processamento de dados, lógica de negócios e interações com o servidor.</p>
-            </div>
-          </div>
+          </li>
           <% end %>
-          <%#new-containner%>
-          <%= link_to cursos_game_dev_path do %>
-          <div class="bg-gray-900 cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-            <img src="https://s3-alpha-sig.figma.com/img/8249/6bcd/37592e0f2c018cc66095e8e66b8c51f7?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=q-ox5hi8~vHUVlgFxNuBNty2OutvVzR~mwwnZKq4lTlJrRsbpAUWAqQe2ZO3qLfJ~0tBNz9VGRCfjYLE5IJyXxJ55Tx5NhVKZ1tQWBBEDRf1AYGi7mOTBauL29wqwX5QXyIXXDEC3PZPbgt9G2QIA8X6XNavzpxYMy97J5jvgACeeeNx6SgWf-nsk0ycoNVx10Or-hdT-jeuRuAg302tgdEWiV1ZFr2FLGaYA4LDJIfD8831uateesW8OcEB-CZr4d2RK4XP5~Y3Ko9FVV99vF1kjpfRP7zJ~tNERvINAycJ3tXlIJqoy7VVuTOsIB3~rcMXkd4W0pU0qmFLETGWig__" alt="game-dev" class="w-full h-60 object-cover" />
-            <div class="p-6">
-              <span class="text-sm block text-gray-400 mb-2">Professor: James Peter Gomes da Silva Barbosa</span>
-              <h3 class="text-xl font-bold">Game Developer</h3>
-              <hr class="my-6" />
-              <p class="text-gray-400 text-sm">Profissionais dessa área têm a função de criar e desenvolver jogos eletrônicos para computadores, celulares, tablets ou consoles de vídeo game, além de supervisionar o andamento dos processos que envolvem a criação de um jogo.</p>
-            </div>
-          </div>
-          <% end %>
-          <%#new-containner%>
-          <%= link_to cursos_data_cience_path do %>
-          <div class="bg-gray-900 cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-            <img src="https://s3-alpha-sig.figma.com/img/41e1/53fa/f4aea615afff8b2c46122e0a6612472b?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZQ8aPpJ3pjZ1Y4ufdDbzbnlsQgYc36Za0QPufX5FjrPgGfDkcL8TF8HjPCifa6o4onzQPyfK3fr9BdVaH2hA-uJ9qf0Y2OL2mLz7ZpGcq~gIF4yWOI8kPBacBLfzfcXETAaOYEduj~g2LqTZcwSKDQpqOEGNk3zq2-4tIo8qDx15za29wfHMBJ6Ruv2q8vkjlCzRatGZi-bCmox4CXa--0fRzV-rJ5A4hHRGrgH4c4I5sJp2cxZ6Rox-0wh78Sg-4eXsvXH2VGjFDFi56uukPLCnLH6gOxO~wyN9YqOHSaO7BA2G2LnjE1st6YIE~jv6CmUL84kg0miWNoxOyWc7bQ__" alt="Data-cience" class="w-full h-60 object-cover" />
-            <div class="p-6">
-              <span class="text-sm block text-gray-400 mb-2">Professor: José Claudeniro Rafael da Silva</span>
-              <h3 class="text-xl font-bold">Ciência de Dados</h3>
-              <hr class="my-6" />
-              <p class="text-gray-400 text-sm">Um desenvolvedor back-end é um profissional de tecnologia da informação responsável pela criação e manutenção da parte "invisível" de um aplicativo ou site, que lida com o processamento de dados, lógica de negócios e interações com o servidor.</p>
-            </div>
-          </div>
-          <% end %>
-          <%#new-containner%>
-          <%= link_to cursos_full_stack_path do %>
-          <div class="bg-gray-900 cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-            <img src="https://s3-alpha-sig.figma.com/img/786b/144c/0dc2dd83c3caa2b5fc3dc297fc04c7b9?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=K33RrayFZAPMQ8PPiBmVtxjiUqAHsQDYcbm0TXWugUONS4d0ewjt97BQ8JgIhMPsxNl2Oe0vr6BWixIdZAVMBjwOI0DdckrCpDf34RFRUQ-qkde69h~IFaCodkeF6JEw8u6EEjLdWigJUBhbhwWQ9FwBZqv4N~rnGuWGmYfqBQ~tY6c3f9aEDRqQmdV2aADypJNi-cvTn7w41rIPS-7yiNM5pm2LrLwNcPFqCTDtt-23n8IpoaCXhvWSJ15SY3yG-GvuWVu7-yMROefLqwZEFAvNmJqRSOzx0d26u0JiHr60J4jHEtU4AOEzklFYhemnCvHGU6-mPcctJ8J4RCh9tQ__" alt="Full-stack" class="w-full h-60 object-cover" />
-            <div class="p-6">
-              <span class="text-sm block text-gray-400 mb-2">Professor: Mateus Souza do Nascimento</span>
-              <h3 class="text-xl font-bold">Full-stack</h3>
-              <hr class="my-6" />
-              <p class="text-gray-400 text-sm">O desenvolvedor full stack é aquele profissional multitarefa que cobre várias frentes na área de TI, pois pode trabalhar com diferentes linguagens. Habilitado a oferecer um suporte completo, esse especialista está muito valorizado no mercado.</p>
-            </div>
-          </div>
-          <% end %>
-        </div>
+        </ul>
       </div>
     </div>
